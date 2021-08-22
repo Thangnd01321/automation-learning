@@ -1,13 +1,13 @@
 import anhtester.LoginPage;
 import anhtester.TestData;
-import anhtester.WelcomePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import selenium.core.BasePage;
 import selenium.settings.Browsers;
 
-public class Sample {
-    private static final String TEST_URL = "https://demo.anhtester.com/login";
+public class Sample2 {
+    private final static String TEST_URL = "https://demo.anhtester.com/login";
+
 
     public static void main(String[] args) throws InterruptedException {
         // Test Steps:
@@ -20,17 +20,15 @@ public class Sample {
 
         LoginPage loginPage = new LoginPage(driver);
         // 3. Enter email, password and click Login button
+
         loginPage.enterEmail(TestData.EMAIL);
-        loginPage.enterPassword(TestData.PASSWORD);
+        loginPage.enterPassword(TestData.WRONG_PASSWORD);
         loginPage.clickLoginButton();
 
-        // 4. Verify login successfully
-        WelcomePage welcomePage = new WelcomePage(driver);
-
-        String title = String.format(TestData.WELCOME_MESSAGE, TestData.USER_NAME);
-        String welcomeMessage = welcomePage.getWelcomeMessage();
-        System.out.println("Verify login successfully");
-        Assert.assertTrue(welcomeMessage.contains(title));
+        // 4. Verify login fails with message "Wrong User Name Or Password !"
+        String message = TestData.LOGIN_FAILS_MESSAGE;
+        String errorMessage = loginPage.getErrorMessage();
+        Assert.assertTrue(errorMessage.contains(message));
 
         // 5. Close browser
         page.quit();
