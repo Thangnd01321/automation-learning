@@ -9,28 +9,18 @@ public class VerifyLogin {
     private final static String TEST_URL = "https://demo.anhtester.com/login";
     private static ChromeDriver driver;
 
-    /*
-        public static void openChrome() {
-            ChromeOptions options = new ChromeOptions();
-            System.out.println("Open chrome browser");
-            ChromeDriver driver = new ChromeDriver(options);
-            System.out.println("Maximize browser");
-            driver.manage().window().maximize();
-            driver.get(TEST_URL);
 
-        }
-    */
     // 3. Enter email, password and click Login button
     public static void enterUserAndPass(String username, String pass) {
         String expectedUsername = "fsdafgsdg";
         String expectedpass = "09099709";
         // open Chrome
-        ChromeOptions options = new ChromeOptions();
-        System.out.println("Open chrome browser");
-        ChromeDriver driver = new ChromeDriver(options);
-        System.out.println("Maximize browser");
-        driver.manage().window().maximize();
-        driver.get(TEST_URL);
+//        ChromeOptions options = new ChromeOptions();
+//        System.out.println("Open chrome browser");
+//        ChromeDriver driver = new ChromeDriver(options);
+//        System.out.println("Maximize browser");
+//        driver.manage().window().maximize();
+//        driver.get(TEST_URL);
 
 
         // enter email
@@ -76,6 +66,17 @@ public class VerifyLogin {
         System.out.println("Close browser");
         driver.quit();
 */
+    }
+
+    public void openChrome() {
+        ChromeOptions options = new ChromeOptions();
+        System.out.println("Open chrome browser");
+        //ChromeDriver driver = new ChromeDriver(options);
+        this.driver = new ChromeDriver(options);
+        System.out.println("Maximize browser");
+        driver.manage().window().maximize();
+        driver.get(TEST_URL);
+
     }
 }
 

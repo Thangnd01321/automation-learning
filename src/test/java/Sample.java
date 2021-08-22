@@ -61,8 +61,8 @@ public class Sample {
 
         // 5. Close browser
 
-        System.out.println("Close browser");
-        driver.quit();
+//        System.out.println("Close browser");
+//        driver.quit();
 
     }
 }
