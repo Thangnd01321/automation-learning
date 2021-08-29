@@ -2,36 +2,61 @@ package anhtester;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import selenium.core.BaseElement;
 import selenium.core.BasePage;
-import selenium.settings.Browsers;
 
 public class LoginPage extends BasePage {
-    public By inputEmail = By.xpath("//label[text()='Email']/following-sibling::input");
-    public By inputPassword = By.xpath("//label[text()='Password']/following-sibling::input");
-    public By btnLogin = By.xpath("//button[text()='Login']");
-    public By lblErrorMessage = By.xpath("//div[@class='alert alert-danger alert-dismissable']");
+    private Page page;
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        page = new Page(driver);
     }
 
-    public void enterEmail(String email) {
+    public LoginPage enterEmail(String email) {
         System.out.println("Enter user name " + email);
-        getDriver().findElement(this.inputEmail).sendKeys(email);
+        page.inputEmail().waitUntilClickable().sendKeys(email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
         System.out.println("Enter user name " + password);
-        getDriver().findElement(this.inputPassword).sendKeys(password);
+        page.inputPassword().waitUntilClickable().sendKeys(password);
+        return this;
     }
 
-    public void clickLoginButton() {
+    public LoginPage clickLoginButton() {
         System.out.println("Click on login button");
-        getDriver().findElement(this.btnLogin).click();
+        page.btnLogin().waitUntilClickable().click();
+        return this;
     }
 
     public String getErrorMessage() {
         System.out.println("Verify error message");
-        return getDriver().findElement(this.lblErrorMessage).getText();
+        return page.lblErrorMessage().waitUntilVisible().getText();
+    }
+
+    public class Page {
+        private WebDriver driver;
+
+        public Page(WebDriver driver) {
+            this.driver = driver;
+        }
+
+        public BaseElement inputEmail() {
+            return new BaseElement(driver, By.xpath("//label[text()='Email']/following-sibling::input"));
+        }
+
+        public BaseElement inputPassword() {
+            return new BaseElement(driver, By.xpath("//label[text()='Password']/following-sibling::input"));
+        }
+
+        public BaseElement btnLogin() {
+            return new BaseElement(driver, By.xpath("//button[text()='Login']"));
+        }
+
+        public BaseElement lblErrorMessage() {
+            return new BaseElement(driver, By.xpath("//div[@class='alert alert-danger alert-dismissable']"));
+        }
     }
 }

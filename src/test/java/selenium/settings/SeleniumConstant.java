@@ -5,7 +5,7 @@ public class SeleniumConstant {
     public final static String WEB_DRIVER_CHROME_NAME = "chromedriver.exe";
     //firefox
     public final static String WEB_DRIVER_FIREFOX_DRIVER = "webdriver.gecko.driver";
-    public final static String WEB_DRIVER_FIREFOX_NAME = "firefox.exe";
+    public final static String WEB_DRIVER_FIREFOX_NAME = "geckodriver.exe";
     //opera
     public final static String WEB_DRIVER_OPERA_DRIVER = "webdriver.opera.driver";
     public final static String WEB_DRIVER_OPERA_NAME = "opera.exe";

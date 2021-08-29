@@ -1,6 +1,7 @@
 package anhtester;
 
 public class TestData {
+    public final static String TEST_URL = "https://demo.anhtester.com/login";
     public final static String USER_NAME = "User 01";
     public final static String EMAIL = "user01@anhtester.com";
     public final static String PASSWORD = "123456";
