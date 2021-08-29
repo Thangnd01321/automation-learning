@@ -6,6 +6,7 @@ import org.testng.Assert;
 import selenium.core.BasePage;
 import selenium.settings.Browsers;
 
+
 public class Sample2 {
     private final static String TEST_URL = "https://demo.anhtester.com/login";
 

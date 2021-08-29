@@ -24,17 +24,16 @@ public class BasePage {
             case OPERA:
                 break;
             case CHROME:
-
                 openChrome();
             case SAFARI:
-                break;
-//                openSafari();
+//                break;
+                openSafari();
             case FIREFOX:
-                break;
-//                openFirefox();
+//                break;
+                openFirefox();
             case MICROSOFT_EDGE:
-                break;
-//                openMicrosoftEdge();
+//                break;
+                openMicrosoftEdge();
             default:
                 openChrome();
         }
