@@ -56,6 +56,8 @@ public class BasePage {
         System.setProperty(SeleniumConstant.WEB_DRIVER_FIREFOX_DRIVER, Paths.get(
                 Constants.RESOURCE_PATH, "drivers", SeleniumConstant.WEB_DRIVER_FIREFOX_NAME).toString());
         FirefoxOptions options_firefox = new FirefoxOptions();
+//
+//        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\WebDriver\\firefox");
         System.out.println("Open firefox browser");
         this.driver = new FirefoxDriver(options_firefox);
         System.out.println("Maximize firefox browser");

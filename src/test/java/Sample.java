@@ -1,14 +1,10 @@
-import anhtester.LoginPage;
-import anhtester.TestData;
+import anhtester.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import selenium.core.BasePage;
 import selenium.settings.Browsers;
-import settings.Constants;
 
 import java.nio.file.Paths;
 
@@ -29,12 +25,27 @@ public class Sample {
         // 2. Open url: https://demo.anhtester.com/login
         basePage.goToUrl(TEST_URL);
 
-        // 3. Enter email, password and click Login button
+        // khởi tạo class
         LoginPage loginPage = new LoginPage(driver);
+        ForgotPassword forgotPassword = new ForgotPassword(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        MenuPage menuPage = new MenuPage(driver);
+        // 3. Enter email, password and click Login button
         loginPage.enterEmail(TestData.EMAIL)
-                .enterPassword(TestData.PASSWORD)
-                .clickLoginButton();
-
+                .enterPassword(TestData.PASSWORD);
+        // back to login screen
+        //driver.navigate().back();
+        //click forgot password
+        forgotPassword.clickForgotPassword();
+        forgotPassword.enterEmail_forgotPassword(TestData.FORGOT_PASSWORD_EMAIL);
+        forgotPassword.clickSend();
+        forgotPassword.iconClose();
+//        forgotPassword.clickClose();
+        loginPage.clickLoginButton();
+        //click on Dash board
+//        dashboard.clickDashboard();
+//        menuPage.searchProduct();
+        menuPage.selectOption();
         // 4. Verify login successfully
         By welcome = By.xpath("//div[@role='alert']");
         String userName = "User 01";

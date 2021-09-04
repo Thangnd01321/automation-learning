@@ -1,12 +1,8 @@
-import anhtester.ForgotPassword;
 import anhtester.LoginPage;
-import anhtester.TestData;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import selenium.core.BasePage;
 import selenium.settings.Browsers;
 
@@ -32,12 +28,12 @@ public class Sample2 {
 
             LoginPage loginPage = new LoginPage(driver);
             //click on forgot password
-            ForgotPassword forgotPassword = new ForgotPassword(driver);
-            forgotPassword.clickForgotPassword();
-            forgotPassword.enterEmail(TestData.FORGOT_PASSWORD_EMAIL);
-//        forgotPassword.clickClose();
-            forgotPassword.clickSend();
-            //navigate browser
+//            ForgotPassword forgotPassword = new ForgotPassword(driver);
+//            forgotPassword.clickForgotPassword();
+//            forgotPassword.enterEmail(TestData.FORGOT_PASSWORD_EMAIL);
+////        forgotPassword.clickClose();
+//            forgotPassword.clickSend();
+//            //navigate browser
 //        driver.navigate().refresh();
 //        driver.navigate().back();
 //        driver.navigate().forward();
