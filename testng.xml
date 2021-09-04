@@ -4,22 +4,7 @@
        parallel="classes" thread-count="1" configfailurepolicy="continue">
     <test name="Regression test" annotations="JDK" preserve-order="true">
         <classes>
-            <class name="testng.LoginTest">
-                <methods>
-                    <include name="verifyLoginSuccess"/>
-                    <include name="verifyLoginFail"/>
-                </methods>
-            </class>
+            <class name="runner.LoginTest"/>
         </classes>
     </test>
-    <test name="Smoke test" annotations="JDK" preserve-order="true">
-        <classes>
-            <class name="testng.LoginTest">
-                <methods>
-                    <exclude name="verifyLoginFail"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
 </suite>

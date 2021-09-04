@@ -117,4 +117,8 @@ public class BasePage {
         System.out.println("Close browser!!!");
         driver.close();
     }
+
+    public String getUrl(){
+        return driver.getCurrentUrl();
+    }
 }
